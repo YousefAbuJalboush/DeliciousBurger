@@ -1,0 +1,221 @@
+@import url(./reset.css);
+
+#burger-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#top-bun {
+  width: 90%;
+  height: 70px;
+  background-color: #a27732;
+  border-radius: 50% 50% 0% 0%;
+  border-top: 9px solid #906725;
+  position: relative;
+  margin: 0 auto;
+}
+.seed {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #f1ebd2;
+  border-radius: 50%;
+}
+.seed.center {
+  left: 50%;
+  top: 35px;
+  transform: translateX(-50%);
+}
+.seed.left {
+  left: 25%;
+  top: 25px;
+  transform: rotate(55deg);
+}
+.seed.right {
+  left: 75%;
+  top: 25px;
+  transform: translateX(-75%) rotate(-55deg);
+}
+.seed::before {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  width: 6px;
+  height: 6px;
+  background: #f1ebd2;
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.tomato {
+  width: 90%;
+  height: 10px;
+  background-color: #ed3219;
+  border-bottom: 7px solid #940c0e;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.tomato.one::before {
+  content: "";
+  position: absolute;
+  right: 15px;
+  background: #ed3219;
+  height: 30px;
+  width: 25px;
+  border-radius: 0 0 50% 50%;
+}
+.tomato.one::after {
+  content: "";
+  position: absolute;
+  right: 40px;
+  background: #ed3219;
+  height: 20px;
+  width: 15px;
+  border-radius: 0 0 50% 50%;
+}
+.tomato.two::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  background: #ed3219;
+  height: 40px;
+  width: 25px;
+  border-radius: 0 0 50% 50%;
+}
+.tomato.two::after {
+  content: "";
+  position: absolute;
+  left: 40px;
+  background: #ed3219;
+  height: 20px;
+  width: 15px;
+  border-radius: 0 0 50% 50%;
+}
+
+#lettuce {
+  width: 100%;
+  height: 15px;
+  background-color: #80d041;
+  border-radius: 20px;
+  border-bottom: 3px solid #0f6d12;
+}
+
+#cheese {
+  width: 100%;
+  height: 15px;
+  background-color: #f0c921;
+  border-radius: 20%;
+  border-top: 5px solid #eab902;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#cheese::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  border-radius: 0 0 0 40%;
+  background: #f0c921;
+  clip-path: polygon(0 100%, 0 0, 100% 0);
+}
+#cheese::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 40px;
+  border-radius: 0 0 40% 0;
+  background: #f0c921;
+  clip-path: polygon(100% 100%, 0 0, 100% 0);
+}
+
+#beef {
+  width: 95%;
+  height: 20px;
+  background-color: #603102;
+  border-radius: 30px;
+  border-bottom: 6px solid #402408;
+  border-top: 6px solid #402408;
+  margin: 0 auto;
+}
+
+#bottom-bun {
+  width: 90%;
+  height: 40px;
+  background-color: #a27732;
+  border-radius: 0% 0% 30% 30%;
+  border-bottom: 11px solid #724d12;
+  margin: 0 auto;
+}
+
+#burger:hover {
+  animation: move-away 0.8s ease forwards;
+}
+
+#burger:not(:hover) {
+  animation: move-back 0.5s ease forwards;
+}
+
+@media only screen and (min-width: 425px) {
+  #burger {
+    width: 350px;
+    display: grid;
+    grid-gap: 0px;
+  }
+
+  @keyframes move-away {
+    form {
+      grid-gap: 0px;
+      width: 350px;
+    }
+    to {
+      grid-gap: 20px;
+      width: 450px;
+    }
+  }
+
+  @keyframes move-back {
+    from {
+      grid-gap: 20px;
+      width: 450px;
+    }
+    to {
+      grid-gap: 0px;
+      width: 350px;
+    }
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #burger {
+    width: 200px;
+    display: grid;
+    grid-gap: 0px;
+  }
+
+  @keyframes move-away {
+    form {
+      grid-gap: 0px;
+      width: 200px;
+    }
+    to {
+      grid-gap: 20px;
+      width: 250px;
+    }
+  }
+
+  @keyframes move-back {
+    from {
+      grid-gap: 20px;
+      width: 250px;
+    }
+    to {
+      grid-gap: 0px;
+      width: 200px;
+    }
+  }
+}
